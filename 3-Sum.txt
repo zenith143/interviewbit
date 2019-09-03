@@ -1,0 +1,27 @@
+public class Solution{
+	public int threeSumClosest(int[] A,int B){
+		Arrays.sort(A);
+		int sum=0,result=0,maxInt=Integer.MAX_VALUE;
+		for(int i=0;i<A.length-2;i++){
+			int j=i+1,k=A.length-1;
+			while(j<k){
+				sum=A[i]+A[j]+A[k];
+				if(Math.abs(sum-B)==0){
+					result=sum;
+					return result;
+				}
+				else if(Math.abs(sum-B)<maxInt){
+					maxInt=Math.abs(sum-B);
+					result=sum;
+				}
+				if(sum>B){
+					k--;
+				}
+				else{
+					j++;
+				}
+			}
+		}
+		return result;
+	}
+}
